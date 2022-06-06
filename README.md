@@ -27,7 +27,7 @@ Create bot with BotFather
 Add Command list by type `` /setcommands `` and choose yout bot
 copy and paste the code below to your botfather config
 ```
-/status - Show Status of All Node
-/calibrate - Calibrate MQ2 Sensor (only admin can use this command)
-/debug - Turn On/Off Debug mode (only admin can use this command)
+status - Show Status of All Node
+calibrate - Calibrate MQ2 Sensor (only admin can use this command)
+debug - Turn On/Off Debug mode (only admin can use this command)
 ```
