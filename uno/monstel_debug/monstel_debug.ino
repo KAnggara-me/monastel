@@ -1,12 +1,12 @@
-#include <CTBot.h>   // Universal Telegram Bot Library written by Brian Lough: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
-#include <RTClib.h>
-#include <Wire.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
-#include <WiFiClient.h>
 #include <DHT.h>
+#include <Wire.h>
+#include <CTBot.h>
+#include <RTClib.h>
 #include <WiFiUdp.h>
 #include <NTPClient.h>
+#include <WiFiClient.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
 // Personal Lib
 #include "MQ2.h" // MQ2 Lib
@@ -126,12 +126,17 @@ void getMsg() {
   {
     // check if the message is a text message
     if (msg.messageType == CTBotMessageText) {
+      int id;
       // check if the message comes from a chat group (the group.id is negative)
       if (msg.group.id < 0) {
-        int id = msg.group.id;
+        if ((msg.text.indexOf("/calibrate") == 0)) {
+          id = msg.sender.id;
+        } else {
+          id = msg.group.id;
+        }
         sendFeedback(id, msg.text);
       } else {
-        int id = msg.sender.id;
+        id = msg.sender.id;
         sendFeedback(id, msg.text);
       }
       Serial.print(F("Pesan : "));
