@@ -8,4 +8,4 @@
 // your Bot Token (Get from Botfather)
 #define BOTtoken "5368104163:AAHURKnqe6z7ajbIp1-uonwRPrAHtWTaeFI"
 #define CHAT_ID 1000839880 // Telegram USer ID
-#define NodeId "sensor1" // API Server Endpoint
+#define NodeId 1 // API Server Endpoint
